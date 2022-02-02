@@ -1,0 +1,39 @@
+{% extends "catalog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+<div class="tab-pane fade show active">
+    <div class="card-deck catalog mt-lg-2 mt-8">
+    {% for catalog in catalogs %}
+        <div class="card card-hover" style="border-radius: 4px; background: #fff;box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05); ">
+            <div class="card-body pb-0">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="{{ catalog.image.url }}" height="250"><br>
+                    </div>
+                    <hr style="width:200px;text-align:left;margin-left:0">
+                    <div>
+                        <p class="catalog-header"><span><b>{{ catalog.title }}</b></span></p>
+                        <p class="catalog-txt">{{ catalog.description }}</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="add-btn grey-btn">
+                            <p>Цена: {{ catalog.price }} ₸</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div><br>
+</div>
+</div>
+
+{% endblock %}

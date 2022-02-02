@@ -1,0 +1,31 @@
+{% extends "catalog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-top: 10px; margin-bottom: 10px">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Тип организации</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Почта</th>
+      <th scope="col">Сайт</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for customer in customers %}
+    <tr>
+      <td>{{ customer.title }}</td>
+      <td>{{ customer.type }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.email }}</td>
+      <td><a href="{{ customer.url }}" target="_blank">{{ customer.url }}</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
